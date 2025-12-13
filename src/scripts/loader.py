@@ -2,7 +2,7 @@ import joblib
 from pathlib import Path
 from sklearn.svm import SVC
 from sklearn.decomposition import PCA
-from sklearn.preprocessing import StandardScaler, MinMaxScaler
+from sklearn.preprocessing import StandardScaler
 
 def guardar_modelo(modelo: SVC, nombre_modelo: str):
     """
@@ -52,7 +52,7 @@ def cargar_PCA(nombre_pca: str) -> PCA:
     ml_models_dir = Path(__file__).parent.parent / "ml_models"
     return joblib.load(ml_models_dir / f"{nombre_pca}_PCA.joblib")
 
-def guardar_scaler(scaler: StandardScaler | MinMaxScaler, nombre_scaler: str):
+def guardar_scaler(scaler: StandardScaler, nombre_scaler: str):
     """
     Funcion para guardar un scaler entrenado en disco.
 
@@ -63,7 +63,7 @@ def guardar_scaler(scaler: StandardScaler | MinMaxScaler, nombre_scaler: str):
     ml_models_dir = Path(__file__).parent.parent / "ml_models"
     joblib.dump(scaler, ml_models_dir / f"{nombre_scaler}_scaler.joblib")
 
-def cargar_scaler(nombre_scaler: str) -> StandardScaler | MinMaxScaler:
+def cargar_scaler(nombre_scaler: str) -> StandardScaler:
     """
     Funcion para cargar un scaler entrenado desde disco.
 
