@@ -1,0 +1,2 @@
+CATEGORICAL_VARS = []
+
