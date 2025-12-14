@@ -13,6 +13,5 @@ CATEGORICAL_VARS = ['tipo_histologico',
                     'FIGO2023',
                     'grupo_de_riesgo_definitivo',
                     'rdt',
-                    'recep_est_porcent_medido',
-                    'tamano_tumoral_medido']
+                    ]
 
