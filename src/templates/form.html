@@ -1,149 +1,223 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Formulario clínico</title>
-    <head>
-        <meta charset="UTF-8">
-        <title>Formulario clínico</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    </head>
-</head>
-<body>
-
-<h1>Formulario clínico</h1>
-
 <form method="POST">
 
-<!-- DATOS GENERALES -->
-<label>Edad</label>
-<input type="number" name="edad" min="0" max="120" required>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
-<label>IMC</label>
-<input type="number" name="imc" step="0.1" min="10" max="70">
+<!-- RECEPTORES (numéricos, sin categorías en CSV) -->
+<label>Receptor estrógeno (%)</label>
+<input
+    type="number"
+    name="recep_est_porcent"
+    min="0"
+    max="100"
+    step="1"
+>
 
-<!-- HISTOLOGÍA -->
+<label>Receptor estrógeno medido</label>
+<select name="recep_est_porcent_medido">
+    <option value="0">No</option>
+    <option value="1">Sí</option>
+</select>
+
+<!-- TAMAÑO TUMORAL -->
+<label>Tamaño tumoral (cm)</label>
+<input
+    type="number"
+    name="tamano_tumoral"
+    min="0"
+    max="20"
+    step="0.1"
+>
+
+<label>Tamaño tumoral medido</label>
+<select name="tamano_tumoral_medido">
+    <option value="0">No</option>
+    <option value="1">Sí</option>
+</select>
+
+<hr>
+
+<!-- TIPO HISTOLÓGICO -->
 <label>Tipo histológico</label>
 <select name="tipo_histologico">
-    <option value="">Seleccionar</option>
-    <option>Endometrioide</option>
-    <option>Seroso</option>
-    <option>Claras</option>
-    <option>Carcinosarcoma</option>
+    <option value="1">Hiperplasia con atípias</option>
+    <option value="2">Carcinoma endometroide</option>
+    <option value="3">Carcinoma seroso</option>
+    <option value="4">Carcinoma Celulas claras</option>
+    <option value="5">Carcinoma Indiferenciado</option>
+    <option value="6">Carcinoma Mixto</option>
+    <option value="7">Carcinoma Escamoso</option>
+    <option value="8"> Carcinosarcoma</option>
+    <option value="9">Leiomiosarcoma</option>
+    <option value="10">Sarcoma de estroma endometrial</option>
+    <option value="11">Sarcoma indiferenciado</option>
+    <option value="12">Adenosarcoma</option>
+    <option value="88">Otros</option>
 </select>
 
+<!-- GRADO -->
 <label>Grado</label>
 <select name="Grado">
-    <option>1</option><option>2</option><option>3</option>
+    <option value="1">Bajo grado (G1-G2)</option>
+    <option value="2">Alto grado (G3)</option>
 </select>
 
-<label>Histología definitiva</label>
-<select name="histo_defin">
-    <option>Endometrioide</option>
-    <option>Seroso</option>
-    <option>Claras</option>
+<hr>
+
+<!-- ECO TV -->
+<label>Infiltración miometrial objetiva (eco TV)</label>
+<select name="ecotv_infiltobj">
+    <option value="1">No aplicado</option>
+    <option value="2">&lt;50%</option>
+    <option value="3">≥50%</option>
+    <option value="4">No valorable</option>
+    <option value="5">Desconocido</option>
 </select>
 
-<label>Grado histológico</label>
-<select name="grado_histologi">
-    <option>1</option><option>2</option><option>3</option>
+<label>Infiltración miometrial subjetiva (eco TV)</label>
+<select name="ecotv_infiltsub">
+    <option value="1">No aplicado</option>
+    <option value="2">&lt;50%</option>
+    <option value="3">≥50%</option>
+    <option value="4">No valorable</option>
 </select>
 
-<!-- MARCADORES -->
-<label>CA125</label>
-<input type="number" name="valor_de_ca125" step="0.1">
-
-<label>CA125 medido</label>
-<input type="number" name="valor_de_ca125_medido" step="0.1">
-
-<!-- ECO -->
-<label class="checkbox"><input type="checkbox" name="ecotv_infiltobj"> Infiltración objetiva</label>
-<label class="checkbox"><input type="checkbox" name="ecotv_infiltsub"> Infiltración subjetiva</label>
+<hr>
 
 <!-- ESTADIAJE -->
-<label>Estadiaje preoperatorio</label>
+<label>Estadiaje Pre_IQ</label>
 <select name="estadiaje_pre_i">
-    <option>I</option><option>II</option><option>III</option><option>IV</option>
+    <option value="1">Estadio I</option>
+    <option value="2">Estadio II</option>
+    <option value="3">Estadio III y IV</option>
+    <option value="4">Desconocido</option>
 </select>
 
-<label>FIGO 2023</label>
-<select name="FIGO2023">
-    <option>I</option><option>II</option><option>III</option><option>IV</option>
-</select>
-
-<label>Estadificación definitiva</label>
+<label>Estadiaje Quirúrgico FIGO 2018</label>
 <select name="estadificacion_">
-    <option>I</option><option>II</option><option>III</option><option>IV</option>
+    <option value="1">Ia</option>
+    <option value="2">Ib</option>
+    <option value="3">II</option>
+    <option value="4">IIIa</option>
+    <option value="5">IIIb</option>
+    <option value="6">IIIc1</option>
+    <option value="7">IIIc2</option>
+    <option value="8">IVa</option>
+    <option value="9">IVb</option>
+    <option value="0">Desconocido</option>
 </select>
 
-<!-- TAMAÑO -->
-<label>Tamaño tumoral (cm)</label>
-<input type="number" name="tamano_tumoral" step="0.1">
-
-<label>Tamaño tumoral medido (cm)</label>
-<input type="number" name="tamano_tumoral_medido" step="0.1">
-
-<!-- LINFÁTICO -->
-<label class="checkbox"><input type="checkbox" name="afectacion_linf"> Afectación linfática</label>
-<label class="checkbox"><input type="checkbox" name="AP_centinela_pelvico"> Centinela pélvico</label>
-<label class="checkbox"><input type="checkbox" name="AP_ganPelv"> Ganglios pélvicos</label>
-<label class="checkbox"><input type="checkbox" name="AP_glanPaor"> Ganglios paraaórticos</label>
-
-<!-- RECEPTORES -->
-<label>Receptor estrógeno (%)</label>
-<input type="number" name="recep_est_porcent" min="0" max="100">
-
-<label>Receptor progesterona (%)</label>
-<input type="number" name="rece_de_Ppor" min="0" max="100">
-
-<label>Receptor estrógeno medido (%)</label>
-<input type="number" name="recep_est_porcent_medido" min="0" max="100">
-
-<label>Receptor progesterona medido (%)</label>
-<input type="number" name="rece_de_Ppor_medido" min="0" max="100">
-
-<!-- GENÉTICA -->
-<label class="checkbox"><input type="checkbox" name="beta_cateninap"> Beta-catenina positiva</label>
-
-{% for i in range(1,7) %}
-<label class="checkbox">
-    <input type="checkbox" name="estudio_genetico_r0{{ i }}">
-    Estudio genético R0{{ i }}
-</label>
-{% endfor %}
-
-<!-- TRATAMIENTO -->
-<label>ASA</label>
-<select name="asa">
-    <option>I</option><option>II</option><option>III</option><option>IV</option>
+<label>Estadiaje Quirúrgico FIGO 2023</label>
+<select name="FIGO2023">
+    <option value="1">IA1</option>
+    <option value="2">IA2</option>
+    <option value="3">IA3</option>
+    <option value="4">IB</option>
+    <option value="5">IC</option>
+    <option value="6">IIA</option>
+    <option value="7">IIB</option>
+    <option value="8">IIC</option>
+    <option value="9">IIIA</option>
+    <option value="10">IIIB</option>
+    <option value="11">IIIC</option>
+    <option value="12">IVA</option>
+    <option value="13">IVB</option>
+    <option value="14">IVC</option>
+    <option value="0">Desconocido</option>
 </select>
 
-<label class="checkbox"><input type="checkbox" name="tto_NA"> Tratamiento neoadyuvante</label>
-<label class="checkbox"><input type="checkbox" name="bqt"> Braquiterapia</label>
-<label class="checkbox"><input type="checkbox" name="qt"> Quimioterapia</label>
-<label class="checkbox"><input type="checkbox" name="Tributaria_a_Radioterapia"> Tributaria a radioterapia</label>
-<label class="checkbox"><input type="checkbox" name="rdt"> Radioterapia</label>
+<hr>
 
-<label>Grupo de riesgo</label>
+<!-- GRUPOS DE RIESGO -->
+<label>Grupo de riesgo preoperatorio</label>
 <select name="grupo_riesgo">
-    <option>Bajo</option><option>Intermedio</option><option>Alto</option>
+    <option value="1">Bajo</option>
+    <option value="2">Intermedio</option>
+    <option value="3">Alto</option>
+    <option value="0">Desconocido</option>
 </select>
 
 <label>Grupo de riesgo definitivo</label>
 <select name="grupo_de_riesgo_definitivo">
-    <option>Bajo</option><option>Intermedio</option><option>Alto</option>
+    <option value="1">Bajo</option>
+    <option value="2">Intermedio</option>
+    <option value="3">Intermedio-alto</option>
+    <option value="4">Alto</option>
+    <option value="5">Avanzado</option>
+    <option value="0">Descpnocido</option>
 </select>
 
-<br><br>
+<hr>
+
+<!-- ASA -->
+<label>ASA</label>
+<select name="asa">
+    <option value="0">ASA 1</option>
+    <option value="1">ASA 2</option>
+    <option value="2">ASA 3</option>
+    <option value="3">ASA 4</option>
+    <option value="4">ASA 5</option>
+    <option value="5">ASA 6</option>
+    <option value="6">Desconocido</option>
+</select>
+
+<hr>
+
+<!-- GANGLIOS -->
+<label>Afectación linfovascular</label>
+<select name="afectacion_linf">
+    <option value="0">No</option>
+    <option value="1">Sí</option>
+    <option value="2">Desconocido</option>
+</select>
+
+<label>AP ganglios pélvicos</label>
+<select name="AP_ganPelv">
+    <option value="0">Negativo</option>
+    <option value="1">Células tumorales aisladas</option>
+    <option value="2">Micrometástasis</option>
+    <option value="3">Macrometástasis</option>
+    <option value="4">Desconocido</option>
+</select>
+
+<label>AP ganglios paraórticos</label>
+<select name="AP_glanPaor">
+    <option value="0">Negativo</option>
+    <option value="1">Células tumorales aisladas</option>
+    <option value="2">Micrometástasis</option>
+    <option value="3">Macrometástasis</option>
+    <option value="4">Desconocido</option>
+</select>
+
+<hr>
+
+<!-- BIOMARCADORES -->
+<label>Beta Catenina Positiva</label>
+<select name="beta_cateninap">
+    <option value="0">No</option>
+    <option value="1">Sí</option>
+    <option value="2">No realizado</option>
+    <option value="2">Desconocido</option>
+</select>
+
+<hr>
+
+<!-- RADIOTERAPIA -->
+<label>Tributaria a Radioterapia</label>
+<select name="Tributaria_a_Radioterapia">
+    <option value="0">No</option>
+    <option value="1">Sí</option>
+    <option value="2">Desconocido</option>
+</select>
+
+<label>Lugar de Radioterapia</label>
+<select name="rdt">
+    <option value="0">RT indicada pero no realizada</option>
+    <option value="1">Pélvia</option>
+    <option value="2">Campo ampliado (pelvica+ParaAo)</option>
+    <option value="3">Desconocido</option>
+</select>
+
+<br>
 <button type="submit">Enviar</button>
 
 </form>
-
-{% if enviado %}
-<hr>
-<h2>Datos recibidos</h2>
-<pre>{{ datos }}</pre>
-{% endif %}
-
-</body>
-</html>
