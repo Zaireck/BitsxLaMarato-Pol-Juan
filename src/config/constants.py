@@ -1,2 +1,18 @@
-CATEGORICAL_VARS = []
+CATEGORICAL_VARS = ['tipo_histologico',
+                    'Grado',
+                    'ecotv_infiltobj',
+                    'ecotv_infiltsub',
+                    'estadiaje_pre_i',
+                    'grupo_riesgo',
+                    'asa',
+                    'afectacion_linf',
+                    'AP_ganPelv',
+                    'AP_glanPaor',
+                    'beta_cateninap',
+                    'estadificacion_',
+                    'FIGO2023',
+                    'grupo_de_riesgo_definitivo',
+                    'rdt',
+                    'recep_est_porcent_medido',
+                    'tamano_tumoral_medido']
 

@@ -37,7 +37,7 @@ def guardar_PCA(pca: PCA, nombre_pca: str):
         nombre_pca (str): Nombre con el que se guardara el modelo PCA.
     """
     ml_models_dir = Path(__file__).parent.parent / "ml_models"
-    joblib.dump(pca, ml_models_dir / f"{nombre_pca}_PCA.joblib")
+    joblib.dump(pca, ml_models_dir / f"{nombre_pca}.joblib")
 
 def cargar_PCA(nombre_pca: str) -> PCA:
     """
@@ -50,7 +50,7 @@ def cargar_PCA(nombre_pca: str) -> PCA:
         Modelo PCA cargado desde disco.
     """
     ml_models_dir = Path(__file__).parent.parent / "ml_models"
-    return joblib.load(ml_models_dir / f"{nombre_pca}_PCA.joblib")
+    return joblib.load(ml_models_dir / f"{nombre_pca}.joblib")
 
 def guardar_scaler(scaler: StandardScaler, nombre_scaler: str):
     """
@@ -61,7 +61,7 @@ def guardar_scaler(scaler: StandardScaler, nombre_scaler: str):
         nombre_scaler (str): Nombre con el que se guardara el scaler.
     """
     ml_models_dir = Path(__file__).parent.parent / "ml_models"
-    joblib.dump(scaler, ml_models_dir / f"{nombre_scaler}_scaler.joblib")
+    joblib.dump(scaler, ml_models_dir / f"{nombre_scaler}.joblib")
 
 def cargar_scaler(nombre_scaler: str) -> StandardScaler:
     """
@@ -74,4 +74,4 @@ def cargar_scaler(nombre_scaler: str) -> StandardScaler:
         Scaler cargado desde disco.
     """
     ml_models_dir = Path(__file__).parent.parent / "ml_models"
-    return joblib.load(ml_models_dir / f"{nombre_scaler}_scaler.joblib")
+    return joblib.load(ml_models_dir / f"{nombre_scaler}.joblib")

@@ -2,7 +2,7 @@ class PredicionInfo:
 
     def __init__(   
                     self,  
-                    recept_est_porcent,
+                    recep_est_porcent,
                     tipo_histologico,
                     Grado,
                     ecotv_infiltobj,
@@ -20,11 +20,10 @@ class PredicionInfo:
                     rdt,
                     recep_est_porcent_medido,
                     tamano_tumoral_medido,
-                    recep_est_porcent,
                     tamano_tumoral
                 ):
         
-        self.__recept_est_porcent = recept_est_porcent
+        self.__recep_est_porcent = recep_est_porcent
         self.__tipo_histologico = tipo_histologico
         self.__Grado = Grado
         self.__ecotv_infiltobj = ecotv_infiltobj
@@ -42,16 +41,15 @@ class PredicionInfo:
         self.__rdt = rdt
         self.__recep_est_porcent_medido = recep_est_porcent_medido
         self.__tamano_tumoral_medido = tamano_tumoral_medido
-        self.__recep_est_porcent = recep_est_porcent
         self.__tamano_tumoral = tamano_tumoral
 
     @property
-    def recept_est_porcent(self):
-        return self.__recept_est_porcent
+    def recep_est_porcent(self):
+        return self.__recep_est_porcent
 
-    @recept_est_porcent.setter
-    def recept_est_porcent(self, value):
-        self.__recept_est_porcent = value
+    @recep_est_porcent.setter
+    def recep_est_porcent(self, value):
+        self.__recep_est_porcent = value
 
     @property
     def tipo_histologico(self):
@@ -188,14 +186,6 @@ class PredicionInfo:
     @tamano_tumoral_medido.setter
     def tamano_tumoral_medido(self, value):
         self.__tamano_tumoral_medido = value
-
-    @property
-    def recep_est_porcent(self):
-        return self.__recep_est_porcent
-    
-    @recep_est_porcent.setter
-    def recep_est_porcent(self, value):
-        self.__recep_est_porcent = value
 
     @property
     def tamano_tumoral(self):
