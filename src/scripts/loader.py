@@ -75,3 +75,20 @@ def cargar_scaler(nombre_scaler: str) -> StandardScaler:
     """
     ml_models_dir = Path(__file__).parent.parent / "ml_models"
     return joblib.load(ml_models_dir / f"{nombre_scaler}.joblib")
+
+def cargar_recursos(nombre_modelo: str, nombre_scaler: str, nombre_pca: str) -> tuple[SVC, StandardScaler, PCA]:
+    """
+    Funcion para cargar todos los recursos necesarios para hacer predicciones.
+
+    Args:
+        nombre_modelo (str): Nombre del modelo a cargar.
+        nombre_scaler (str): Nombre del scaler a cargar.
+        nombre_pca (str): Nombre del PCA a cargar.
+
+    Returns:
+        Tupla con el modelo, scaler y PCA cargados desde disco.
+    """
+    modelo = cargar_modelo(nombre_modelo)
+    scaler = cargar_scaler(nombre_scaler)
+    pca = cargar_PCA(nombre_pca)
+    return modelo, scaler, pca
